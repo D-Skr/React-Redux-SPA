@@ -27,9 +27,18 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(jsx|js)$/,
                 exclude: /node_modules/,
-                use: ["babel-loader"]
+                use: {
+
+                    loader: "babel-loader",
+
+                    options: {
+
+                        presets:["@babel/preset-react", '@babel/preset-env', "@babel/preset-flow"]
+
+                    }
+                }
             }
         ]
     }
