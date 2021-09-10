@@ -8,11 +8,11 @@ const Repo = (props) => {
     return (
         <div className="repo">
             <div className="repo-header">
-                <div className="repo-header-name">{repo.name}</div>
-                <div className="repo-header-stars">🌟: {repo.stargazers_count}</div>
+                <div className="repo-header-name">{repo.full_name} </div>
+                <div className="repo-header-stars">🌟: {repo.stargazers_count}  | 🤖 {repo.language}  | Updated on {repo.updated_at}</div>
 
             </div>
-            <div className="repo-last-commit">{repo.updated_at}</div>
+            <div className="repo-last-commit">last commit: {repo.updated_at}</div>
             <a href={repo.html_url} target="_blank" className="repo-link">GitHub Link</a>
 
         </div>
