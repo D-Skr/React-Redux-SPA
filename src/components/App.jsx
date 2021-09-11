@@ -3,7 +3,7 @@ import './app.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCount } from '../reducers/reposReducer';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Main from "./main/Main"
+import Main from "./main/Main";
 
 
 
@@ -13,7 +13,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className="container">
-                <Route path="/" component={Main}/>
+                <Route path="/" component={Main} />
             </div>
         </BrowserRouter>
     )

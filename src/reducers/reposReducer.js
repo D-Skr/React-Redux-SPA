@@ -25,7 +25,7 @@ export default function reposReducer(state = defaultState, action) {
                 ...state,
                 isFetching: action.payload
             }
-        case SET_IS_FETCHING:
+        case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.payload
