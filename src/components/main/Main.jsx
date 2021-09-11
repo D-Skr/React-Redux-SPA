@@ -8,14 +8,20 @@ const Main = () => {
     const dispatch = useDispatch()
     const repos = useSelector(state => state.repos.items)
     const isFetching = useSelector(state => state.repos.isFetching)
+    const currentPage = useSelector(state => state.repos.currentPage)
+    const totalCount = useSelector(state => state.repos.totalCount)
+    const perPage = useSelector(state => state.repos.perPage)
     const [searchValue, setSearchValue] = useState("")
 
+    const pages = [1, 2, 3, 4, 5]
+
     useEffect(() => {
-        dispatch(getRepos());
-    }, [])
+        dispatch(getRepos(searchValue, currentPage, perPage));
+    }, [currentPage])
 
     function searchHandler() {
-        dispatch(getRepos(searchValue));
+        dispatch(setCurrentPage(1));
+        dispatch(getRepos(searchValue, currentPage, perPage));
     }
 
 
@@ -34,8 +40,12 @@ const Main = () => {
 
                     </div>
             }
-
-        </div>
+            <div className="pages">
+                {pages.map((page, index) => <span key={index}
+                    className={currentPage == page ? "current-page" : "page"}
+                    onClick={() => dispatch(setCurrentPage(page))}> {page}</span>)}
+            </div>
+        </div >
     );
 
 };

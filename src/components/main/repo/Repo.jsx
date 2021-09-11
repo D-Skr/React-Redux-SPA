@@ -12,7 +12,7 @@ const Repo = (props) => {
                 <div className="repo-header-stars">🌟: {repo.stargazers_count}  | 🤖 {repo.language}  | Updated on {repo.updated_at}</div>
 
             </div>
-            <div className="repo-last-commit">last commit: {repo.updated_at}</div>
+
             <a href={repo.html_url} target="_blank" className="repo-link">GitHub Link</a>
 
         </div>
