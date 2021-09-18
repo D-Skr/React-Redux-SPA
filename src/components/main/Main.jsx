@@ -3,8 +3,10 @@ import './main.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRepos } from '../actions/repos';
 import Repo from './repo/Repo';
+// import { isFetchError } from '../../reducers/reposReducer';
 import { setCurrentPage } from '../../reducers/reposReducer';
 import { createPages } from '../../utils/pagesCreator';
+import { Redirect } from 'react-router'
 
 const Main = () => {
     const dispatch = useDispatch()
@@ -31,6 +33,11 @@ const Main = () => {
 
     return (
         <div>
+            {isFetchError &&
+                <div class="alert alert-danger" role="alert">
+                    ERROR, please refresh your page
+                </div>
+            }
             <div className="search">
                 <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" placeholder="Input repo name" className="search-input" />
                 <button onClick={() => searchHandler()} className="search-btn"> Search</button>
